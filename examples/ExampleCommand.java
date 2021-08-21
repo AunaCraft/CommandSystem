@@ -13,8 +13,10 @@ public class ExampleCommand implements FCommand {
     @Override
     public CommandBuilder create(CommandBuilder builder) {
         builder.aliases("h");
+        builder.permission("example.heal");
         builder.parameter(
                 ParameterBuilder.beginParameter("Player")
+                        .permission("example.heal.other")
                         .autoCompletionHandler(new ExampleAutoCompletionHandler())
                         .required()
                         .build()
